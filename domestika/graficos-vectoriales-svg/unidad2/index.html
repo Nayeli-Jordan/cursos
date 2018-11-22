@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SVG Básico</title>
+	<link type="text/css" rel="stylesheet" href="style.css" media="screen,projection, print" />
+</head>
+<body>
+	<!-- RECTANGULO -->
+	<svg width="600" height="400">
+		<!-- Las figuras se posicionan en el orden que van en el código. No sirve z-index en SVG -->
+		<rect x="100" y="50" width="200" height="100" fill="green"/><!-- Importante que autocierre -->
+		<rect x="150" y="250" width="250" height="100" fill="blue"/>
+		<rect x="50" y="100" width="250" height="100" fill="pink" stroke="red" stroke-width="6" stroke-linejoin="round"/>
+		<!-- 
+		stroke-linejoin = 
+		round - redondeado, 
+		miter - esquinas angulosas, 
+		bevel - corte en esquinas
+		-->
+		<rect class="css-svg"/>
+	</svg>
+	<!-- CIRCULO -->
+	<svg width="600" height="400">
+		<circle cx="300" cy="200" r="100" fill="gray"/>
+		<!-- 
+		cx = posicion circulo eje x
+		cy = posicion circulo eje y
+		r  = radio circulo
+		-->
+	</svg>
+	<!-- ELIPSE -->
+	<svg width="600" height="400">
+		<ellipse cx="300" cy="200" rx="100" ry="200" fill="red"/>
+		<!-- 
+		rx y ry en lugar de r para elipse (ancho y alto)
+		-->
+	</svg>
+	<!-- LINEA -->
+	<svg width="600" height="400">
+		<line x1="5" y1="5" x2="100" y2="100" stroke="blue" stroke-width="5" stroke-linecap="round" /> <!-- x,y1 = inicio x,y2 = final -->
+		<!-- NO stroke-linejoin, SÍ stroke-linecap = 
+		round - redondeada un pixel despues del limite
+		butt - exactamente en el punto donde decimos
+		square - termina un punto (1 pixel) después de la linea
+		 -->
+	</svg>
+	<!-- POLILINEA -->
+	<!-- 
+		Una linea con m´pas de dos puntos = varias lineas
+		No cierra el punto inicial y final
+	-->
+	<svg width="600" height="400">
+		<!-- points = cada conjunto de dos es igual a x-y
+		separar conjuntos con espacio y x-y con coma -->
+		<polyline points="100,300 150,300 150,250 200,250" fill="none" stroke="purple" stroke-width="4"/><!-- Por defecto tiene relleno (fill) -->
+		<polyline points="200,400 250,400 250,350 300,350" fill="red" stroke="purple" stroke-width="4"/>
+	</svg>
+	<!-- POLIGONO -->
+	<!-- 
+		Sí cierra con una linea recta sin necesidad de unir el punto inicial y final
+	-->
+	<svg width="600" height="400">
+		<polygon points="100,300 150,300 150,250 200,250 200,200 250,200" fill="none" stroke="purple" stroke-width="4"/>
+	</svg>
+
+	<!-- PATH -->
+	<!-- 
+		Puntos, curvas y rectas
+		d = Conjunto de cordenadas para el dibujo 
+		M = indica inicio de trazo. puede interrumpirse para iniciar en otro punto.
+		H = linea horizontal (eje X) ---
+		V = linea vertical (eje Y) |
+		Z = indica fin del trazo
+	-->
+	<svg width="600" height="400">
+		<path d="M10 0 H 100 V 130 H 50 Z"/>
+		<!-- 
+			Inicia en X 10 - Y 0
+			Punto 2 = x 100
+			Punto 3 = y 130
+			Punto 4 = x 50
+			cierra en linea recta
+		-->
+		<path d="M10 300 H 150 V 360 H 170 V 380 H 90 Z"/>
+		
+	</svg>
+	<svg width="600" height="400">
+		<!-- L = marca una linea entre dos trazos -->
+		<path d="M10 10 L 200 100" />
+		<path d="M0 200 L 380 270 V 380 L 90 300 Z"/> <!-- L 380 270 = linea a punto x380, y270 -->
+	</svg>
+	<!-- PATH Curva Cuadrática Bézier -->
+	<svg width="600" height="400">
+		<!-- 
+		Q = puntos en los que se crea la curva
+		3 puntos mínimo = inicial, tirador (esperitirador), final 
+		x,y
+		-->
+		<path d="M0,100 Q250,10 500,200" fill="none" /> -->
+	</svg>
+	<!-- PATH Curva Cubica Bézier -->
+	<svg width="600" height="400">
+		<!-- 
+		C = puntos en los que se crea la curva
+		-->
+		<path d="M0,200 C200,0 400,10 600,200" fill="none" /> -->
+	</svg>
+</body>
+</html>

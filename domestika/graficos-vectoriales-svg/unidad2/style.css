@@ -1,0 +1,15 @@
+svg {
+	border: 1px solid green; /* Si no se pone el color se marca negro */
+}
+
+svg .css-svg {
+	x: 250px;
+	y: 150px;
+	width: 250px;
+	height: 150px;
+	fill: purple;
+}
+
+svg path {
+	stroke: red;
+}
